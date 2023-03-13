@@ -1,0 +1,332 @@
+
+1)INPUT: {
+"Branch": "CSE",
+"Case": "152314",
+"Reference_No": "01234576"
+} OUTPUT: [{0={key=name,value=Branch},1={key=value,value=CSE}},{0={key=name,value=Case},1={key=value,value=152314}},{0={key=name,value=Reference_No},1={key=value,value=01234576}}]
+
+================================================================================================================
+2)input
+------
+{
+"key":"123",
+"value":[
+{
+"val1":"123",
+"string1":"abc"
+},
+{
+"val2":"456",
+"string":"def"
+}
+]
+}
+------------ output
+------
+{
+"key": "123",
+"val1": "123",
+"string1": "abc",
+"val2": "456",
+"string": "def"
+
+=================================================================================================================
+
+3)input:{"name": "raju","dept": "developer","discription": "1,2,3,4,5,6"} 
+Output:[  {    "name": "raju",    "dept": "developer",    "discription": "1"  },  {    "name": "raju",    "dept": "developer",    "discription": "2"  },  {    "name": "raju",    "dept": "developer",    "discription": "3"  },  {    "name": "raju",    "dept": "developer",    "discription": "4"  },  {    "name": "raju",    "dept": "developer",    "discription": "5"  },  {    "name": "raju",    "dept": "developer",    "discription": "6"  }]
+================================================================================================================
+
+
+4)input:[ "pectin,1400, pre-Hyderbad,LiLys - 10000000000987635", "pectin,1400, pre-Hyderbad,LiLys - 20000000000987635", "pectin,1400, pre-Hyderbad,LiLys - 30000000000987635", "pectin,1400, pre-Hyderbad,LiLys - 40000000000987635", "pectin,1400, pre-Hyderbad,LiLys - 50000000000987635", "pectin,1400, pre-Hyderbad,LiLys - 60000000000987635" ] 
+Output:[  " 10000000000987635",  " 20000000000987635",  " 30000000000987635",  " 40000000000987635",  " 50000000000987635",  " 60000000000987635"]
+
+================================================================================================================
+
+
+5)Input: {
+"HomePhoneNumber": {
+    "countrycodeIso": "FR",
+    "phoneNumber": "1234568" },
+"MobilePhoneNumber": {
+       "countrycodeIso": "FR0",
+    "phoneNumber": "1234500" },
+"WorkPhoneNumber": {
+       "countrycodeIso": "F1R",
+    "phoneNumber": "10000" }
+}
+------------------------------------
+output: {
+  "phoneNumber": [
+    {
+      "countrycodeIso": "FR",
+      "phoneNumber": "1234568",
+      "phoneType": "Home"
+    },
+    {
+      "countrycodeIso": "FR0",
+      "phoneNumber": "1234500",
+      "phoneType": "Mobile"
+    },
+    {
+      "countrycodeIso": "F1R",
+      "phoneNumber": "10000",
+      "phoneType": "Work"
+    }
+  ]
+}
+
+==================================================================================================================
+
+
+6)input:[{"ID": "Hello"},{"ID":"Mule"}]   
+output:{"ID's": "Hello,Mule"}
+===================================================================================================================
+
+7)Input:
+[
+{
+"invoiceId": 1,
+"amount": 100 },
+{
+"invoiceId": 2,
+"amount": 200 },
+{
+"invoiceId": 3,
+"amount": 300 }] [5:50 PM] Eshwar N[
+{
+"allocationId": 1,
+"invoiceId": 1,
+"allocationAmount": 50 },
+{
+"allocationId": 2,
+"invoiceId": 1,
+"allocationAmount": 50 },
+{
+"allocationId": 3,
+"invoiceId": 2,
+"allocationAmount": 100 },
+{
+"allocationId": 4,
+"invoiceId": 2,
+"allocationAmount": 100 },
+{
+"allocationId": 5,
+"invoiceId": 3,
+"allocationAmount": 150 },
+{
+"allocationId": 6,
+"invoiceId": 3,
+"allocationAmount": 150 }]  
+OUTPUT:
+[
+{
+"invoiceId": 1
+"amount": 100
+"allocations: [
+{
+"allocationId": 1,
+"invoiceId": 1,
+"allocationAmount": 50 },
+{
+"allocationId": 2,
+"invoiceId": 1,
+"allocationAmount": 50 }]},
+{
+"invoiceId": 2,
+"amount": 200,
+"allocations: [
+{
+"allocationId": 3,
+"invoiceId": 2,
+"allocationAmount": 100 },
+{
+"allocationId": 4,
+"invoiceId": 2,
+"allocationAmount": 100 }]},
+{
+"invoiceId": 3,
+"amount": 300,
+"allocations: [
+{
+"allocationId": 5,
+"invoiceId": 3,
+"allocationAmount": 150 },
+{
+"allocationId": 6,
+"invoiceId": 3,
+"allocationAmount": 150 }]}] 
+
+===================================================================================================================
+payload map ((item, index) -> {invoiceId:item.invoiceId,amount:item.amount,allocations: (a map ((item1, index1) -> if(item.invoiceId ==item1.invoiceId ) item else "")) -- [""]
+===================================================================================================================
+8)read a multiple records from a file and concatenate the firstname and lastname.
+if the age is greater than 60 records needs to be separated and Gender only Male.
+if the status is active. records needs to create in table called Active table read a multiple records from a file and concatenate the firstname and lastname.
+if the age is Less than 60 or equal to 60 records needs to be separated and Gender only Male.
+if the status is inactive. records needs to create in table called inactive table.
+if the name is empty and age is empty, need to be considered inactive.
+[{
+"firstname": "John",
+"lastname": "doe",
+"age": "63","gender": "M",
+"status": "active"
+},
+{
+"firstname": "Matt",
+"lastname": "Henry","gender": "M",
+"age": "60",
+"status": "active"
+},
+{
+"firstname": "",
+"lastname": "",
+"age": "50","gender": "M",
+"status": "Inactive"
+}
+] 
+
+===================================================================================================================solution:payload map ((item, index) -> if((item."age">"60")and(item.gender =="M")and(item.status=="active"))({name:item.firstname ++ item.lastname,age:item.age,gender:item.gender ,status:item.status})else(""))--[""]
+===================================================================================================================
+9)input:
+[
+{
+"earnings_code": "DOV",
+"main_account": "620",
+"type": "EE",
+"sub_account": "1",
+"status": "A"
+},
+{
+"earnings_code": "OTM",
+"main_account": "620",
+"type": "EE",
+"sub_account": "1",
+"status": "A"
+},
+{
+"earnings_code": "S",
+"main_account": "620",
+"type": "EE",
+"sub_account": "1",
+"status": "A"
+},
+{
+"earnings_code": "V",
+"main_account": "620",
+"sub_account": "6",
+"status": "A"
+}
+]
+
+===================================================================================================================
+10)input:
+[
+    {
+        "Optimus_Role": "Internal User",
+        "SFDC_HERC_ROLE": "All Other Titles"
+    },
+    {
+        "Optimus_Role": "Coordinator",
+        "SFDC_HERC_ROLE": "Sales Coordinator"
+    },
+    {
+        "Optimus_Role": "Coordinator",
+        "SFDC_HERC_ROLE": "Custome Care"
+    },
+    {
+        "Optimus_Role": "Coordinator",
+        "SFDC_HERC_ROLE": "Sales Operations"
+    },
+    {
+        "Optimus_Role": "Coordinator",
+        "SFDC_HERC_ROLE": "Black & Gold"
+    },
+    {
+        "Optimus_Role": "Coordinator",
+        "SFDC_HERC_ROLE": "Telesales Rep"
+    },
+    {
+        "Optimus_Role": "Representative",
+        "SFDC_HERC_ROLE": "ProSolutions Rep"
+    },
+    {
+        "Optimus_Role": "Representative",
+        "SFDC_HERC_ROLE": "Strategic Account Manager"
+    },
+    {
+        "Optimus_Role": "Representative",
+        "SFDC_HERC_ROLE": "Strategic Account Rep"
+    },
+    {
+        "Optimus_Role": "Representative",
+        "SFDC_HERC_ROLE": "Strategic Account Rep ProSolutions"
+    },
+    {
+        "Optimus_Role": "Representative",
+        "SFDC_HERC_ROLE": "CRC Manager"
+    },
+    {
+        "Optimus_Role": "Representative",
+        "SFDC_HERC_ROLE": "Territory Rep"
+    },
+    {
+        "Optimus_Role": "Manager",
+        "SFDC_HERC_ROLE": "Branch Manager"
+    },
+    {
+        "Optimus_Role": "Manager",
+        "SFDC_HERC_ROLE": "Region VP"
+    },
+    {
+        "Optimus_Role": "Manager",
+        "SFDC_HERC_ROLE": "District Manager"
+    },
+    {
+        "Optimus_Role": "Manager",
+        "SFDC_HERC_ROLE": "District Sales Manager"
+    },
+    {
+        "Optimus_Role": "Manager",
+        "SFDC_HERC_ROLE": "Industrial Tool"
+    },
+    {
+        "Optimus_Role": "Manager",
+        "SFDC_HERC_ROLE": "Pricing"
+    },
+    {
+        "Optimus_Role": "Manager",
+        "SFDC_HERC_ROLE": "ProSolutions Operations"
+    }
+] 
+
+output:
+{
+  "Internal User": [
+    "All Other Titles"
+  ],
+  "Coordinator": [
+    "Sales Coordinator",
+    "Custome Care",
+    "Sales Operations",
+    "Black & Gold",
+    "Telesales Rep"
+  ],
+  "Representative": [
+    "ProSolutions Rep",
+    "Strategic Account Manager",
+    "Strategic Account Rep",
+    "Strategic Account Rep ProSolutions",
+    "CRC Manager",
+    "Territory Rep"
+  ],
+  "Manager": [
+    "Branch Manager",
+    "Region VP",
+    "District Manager",
+    "District Sales Manager",
+    "Industrial Tool",
+    "Pricing",
+    "ProSolutions Operations"
+  ]
+}
+
