@@ -1,0 +1,13 @@
+%dw 2.0
+output application/json
+var rr = payload.Rank splitBy  ","
+var nr = payload.Name splitBy ","
+var sr = payload.Subject splitBy ","
+---
+{
+    "Details":rr map{
+    "Rank":rr[$$],
+    "Name":nr[$$],
+    "Subject":sr[$$]
+}
+}

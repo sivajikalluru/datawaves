@@ -1,0 +1,15 @@
+{
+"Delivery": "3769960223",
+"Posting_Date": "20210918",
+"Flag": "REVERSAL",
+"Type": "RETURN",
+"ItemNav": [
+{
+"Delivery": "3769960223",
+"Item": "000020",
+"Material": "000000000000001623",
+"Quantity": "20",
+"Batch": "AI"
+}
+]
+}

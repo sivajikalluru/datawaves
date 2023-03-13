@@ -1,0 +1,32 @@
+%dw 2.0
+output application/json
+var myArr = [
+    {
+      "Delivery": "3769960223",
+      "Item": "000020",
+      "Material": "000000000000001623",
+      "Quantity": "20",
+      "Batch": "AI"
+    }
+  ]
+---
+if(payload.d.flag == "Collection") 
+    payload mapObject ((value, key, index) -> {
+        "Delivery":payload.d.vbeln,
+        "Posting_Date":payload.d.postingDate,
+        "Flag":"REVERSAL",
+        "Type":"RETURN",
+        "ItemNav":myArr
+    } ++ {        "Delivery":payload.d.vbeln,
+        "Posting_Date":payload.d.postingDate,
+        "Flag":"POSTING",
+        "Type":"RETURN",
+        "ItemNav":myArr})
+else 
+    payload mapObject ((value, key, index) ->{
+        "Delivery":payload.d.vbeln,
+        "Posting_Date":payload.d.postingDate,
+        "Flag":payload.d.flag,
+        "Type":"RETURN",
+        "ItemNav":myArr
+    } )

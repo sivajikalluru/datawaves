@@ -1,0 +1,7 @@
+%dw 2.0
+output application/json
+---
+payload[0] mapObject ((value, key, index) -> 
+(
+    if((key as String) == "hi") (upper(key)):value else (key):value
+))

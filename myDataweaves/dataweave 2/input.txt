@@ -1,0 +1,10 @@
+[{
+"paydexScore": "123",
+"failureScore": "123A",
+"delinquencyScore": "3456@12"
+},
+{
+"paydexScore": "ac@",
+"failureScore": "23.45",
+"delinquencyScore": "@12"
+}]

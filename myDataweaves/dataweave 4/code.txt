@@ -1,0 +1,5 @@
+%dw 2.0
+import dw::core::Strings
+output application/json
+---
+((payload joinBy  "-") splitBy  "|") map ((item, index) ->item[0 to indexOf(item," -") as Number] )

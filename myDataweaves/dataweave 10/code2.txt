@@ -1,0 +1,4 @@
+%dw 2.0
+output text/plain
+--- 
+write(payload) replace "\n" with ""  replace ":" with '=' replace "\"" with ""

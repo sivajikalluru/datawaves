@@ -1,0 +1,12 @@
+{
+  "content-groups": {
+    "content-group": {
+      "Name": "US10"
+    }
+  },
+  "content-groups": {
+    "content-group": {
+      "Name": "CA10"
+    }
+  }
+}

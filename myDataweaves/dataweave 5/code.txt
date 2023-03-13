@@ -1,0 +1,9 @@
+payload mapObject ((value, key, index) -> {
+
+(key):[((keysOf(value reduce $ + $$)[0 to 1]) map{
+
+($):((value reduce ((item, accumulator) -> item ++ accumulator)) filterObject ((value, key, index) -> key == $)) pluck $ reduce $ ++ $$
+
+}) reduce ((item=[], accumulator) -> item ++ accumulator )]
+
+})

@@ -1,0 +1,15 @@
+{
+"result":[
+{
+"<lname>k__backing":"kumar",
+"<fname>k__backing":"john",
+"<location>k__backing": "hyd"
+}
+],
+"details":[
+{
+"<address>k__backing":"new york",
+"<address1>k__backing":"USA"
+}
+]
+}

@@ -1,0 +1,36 @@
+{
+  "customers": [
+    {
+      "sites": [
+        {
+          "systems": [
+            {
+              "activeAlarm": false
+            },
+            {
+              "activeAlarm": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sites": [
+        {
+          "systems": [
+            {
+              "activeAlarm": true
+            }
+          ]
+        },
+        {
+          "systems": [
+            {
+              "activeAlarm": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

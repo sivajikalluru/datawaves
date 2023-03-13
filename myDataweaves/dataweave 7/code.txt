@@ -1,0 +1,8 @@
+%dw 2.0
+import dw::core::Arrays
+output application/json
+var res = payload reduce ((item =[], accumulator) -> item ++  accumulator)
+---
+((keysOf(res)) distinctBy ((item, index) -> item )) map ((item, index) -> {
+    (item):flatten(res filterObject ((value, key, index) ->key == item ) pluck ((value, key, index) ->value ))
+})

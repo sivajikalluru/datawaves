@@ -1,0 +1,37 @@
+{
+
+"d": {
+
+"vbeln": "3768190772",
+
+"postingDate": "20210126",
+
+"type": "Z1AA/Z1BA/Z1D1/ZNB",
+
+"flag": "Collection",
+
+"delNavig": {
+
+"results": [
+
+{
+
+"vbeln": "3768190772",
+
+"item": "10",
+
+"material": "1",
+
+"quantity": "33.000",
+
+"batch": "AI"
+
+}
+
+]
+
+}
+
+}
+
+}

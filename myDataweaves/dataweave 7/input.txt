@@ -1,0 +1,62 @@
+[
+  {
+    "kitchens": [
+      {
+        "id": "62875d54f50a3825673cd95a_kitchensFlow_kitchensFlow",
+        "flow": "kitchensFlow",
+        "name": "kitchensFlow_Scheduler",
+        "lastRun": "2022-05-25T11:03:27.906Z",
+        "enabled": true,
+        "scheduleTime": {
+          "timeUnit": "minutes",
+          "period": 5
+        }
+      }
+    ]
+  },
+  {
+    "kitchens": [
+      {
+        "id": "62875d54f50a3825673cd95a_kitchensFlow1_kitchensFlow1",
+        "flow": "kitchensFlow1",
+        "name": "kitchensFlow1_Scheduler",
+        "lastRun": "2022-05-25T10:54:03.781Z",
+        "enabled": true,
+        "scheduleTime": {
+          "timeUnit": "minutes",
+          "period": 10
+        }
+      }
+    ]
+  },
+  {
+    "kit": [
+      {
+        "id": "62875d54f50a3825673cd95a_kitchensFlow_kitchensFlow",
+        "flow": "kitchensFlow",
+        "name": "kitchensFlow_Scheduler",
+        "lastRun": "2022-05-25T11:03:27.906Z",
+        "enabled": true,
+        "scheduleTime": {
+          "timeUnit": "minutes",
+          "period": 5
+        }
+      }
+    ]
+  },
+  {
+    "kit": [
+      {
+        "id": "62875d54f50a3825673cd95a_kitchensFlow_kitchensFlow",
+        "flow": "kitchensFlow",
+        "name": "kitchensFlow_Scheduler",
+        "lastRun": "2022-05-25T11:03:27.906Z",
+        "enabled": true,
+        "scheduleTime": {
+          "timeUnit": "minutes",
+          "period": 5
+        }
+      }
+    ]
+  }
+]

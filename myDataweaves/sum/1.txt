@@ -1,0 +1,85 @@
+[
+
+    {
+
+        "id": null,
+
+        "items": [
+
+            {
+
+                "exception": null,
+
+                "message": null,
+
+                "payload": {
+
+                    "success": true,
+
+                    "id": "5003H000006S0JDQA0",
+
+                    "errors": []
+
+                },
+
+                "id": "5003H000006S0JDQA0",
+
+                "successful": true,
+
+                "statusCode": null
+
+            },
+
+       
+
+             {
+
+                "exception": null,
+
+                "message": null,
+
+                "payload": {
+
+                    "success": true,
+
+                    "id": "5003H000006S0PxQAK",
+
+                    "errors": []
+
+                },
+
+                "id": "5003H000006S0PxQAK",
+
+                "successful": true,
+
+                "statusCode": null
+
+            }
+
+        ],
+
+        "successful": true
+
+    }
+
+]
+
+===============================================================================
+
+%dw 2.0
+output application/json
+---
+flatten(payload.items) map{
+    "id":if($.payload.success == true) $.id default null else ""
+}
+
+==================================================================================
+
+[
+  {
+    "id": "5003H000006S0JDQA0"
+  },
+  {
+    "id": "5003H000006S0PxQAK"
+  }
+]

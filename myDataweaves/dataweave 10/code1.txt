@@ -1,0 +1,11 @@
+%dw 2.0
+output text/plain
+---
+((write((flatten((payload mapObject ((value, key, index) ->{
+    "a":[key,value] map{
+        ($$):{
+            ("key"):["name","value"][$$],
+            "value":$
+        }
+    }
+})) pluck $))) replace ":" with "=") replace  "\"" with "")

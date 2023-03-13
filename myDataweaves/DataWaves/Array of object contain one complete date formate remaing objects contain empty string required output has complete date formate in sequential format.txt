@@ -1,0 +1,64 @@
+Array of object contain one complete date formate remaing objects contain empty string required output has complete date formate in sequential format::-
+-------------------------------------------------------------------------------------------------------------------
+input ::
+--------                                                                  
+[{
+"date": " "
+},
+{
+"date": "2022-01-21"
+},{
+"date": " "
+},{
+"date": ""
+},{
+"date": ""
+}]
+
+-------------------
+output:::
+[
+{
+"Date": "2022-01-21"
+},
+{
+"Date": "2021-01-21"
+},
+{
+"Date": "2020-01-21"
+},
+{
+"Date": "2019-01-21"
+},
+{
+"Date": "2018-01-21"
+}
+]
+
+-------------------------------------------------------------
+Logic:::
+--------
+
+method1::
+------------
+
+%dw 2.0
+output application/json
+import * from dw::core::Periods
+var a = payload map $ filter ((item, index) -> sizeOf(item.date)>=5)
+var b =a.date joinBy  " "
+var c = payload map ((item, index) -> {
+    Date : trim(b) replace  " " with a as String { format: "yyy/mm/dd"}
+})
+
+---
+c map ((item, index) -> {
+    "Date": item.Date - period( years: index)
+})
+
+----------------------------------------------------------------------
+[vars.databasedata.code]distinctBy $ -- [vars.salesdata.code__c]distinctBy $
+
+---------------------------
+
+(if(item.origin == a[index].origin) "yes" else "")

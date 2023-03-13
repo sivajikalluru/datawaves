@@ -1,0 +1,16 @@
+%dw 2.0
+output application/json
+---
+((payload map{
+    "a": payload [ $$ to $$ +4]
+}.a filter ((item, index) -> item != null )) map{
+    "b":$
+}.b) filter ((item, index) -> ((item[-1] mod 5) == 0))
+
+--------------------------------------------------------------------------------------------------
+%dw 2.0
+output application/json
+---
+payload map{
+    "a":payload[$$*5 to $$*5+4] 
+}.a filter ((item, index) -> item != null)

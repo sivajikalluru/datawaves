@@ -1,0 +1,40 @@
+input::
+----------
+{
+"number": 1,
+"more": {
+"number": 2
+},
+"number": 3,
+"number": 4,
+"string": 5
+}
+
+
+output:::
+--------------
+12
+
+
+logic:::
+---------------
+
+%dw 2.0
+
+output application/json
+
+---
+
+payload.*number reduce (item, acc)-> acc * item
+
+
+
+
+
+
+
+
+Url link:::::::::::::::::::
+---------------------------
+https://www.caeliusconsulting.com/blogs/reduce-function-in-dataweave/
+

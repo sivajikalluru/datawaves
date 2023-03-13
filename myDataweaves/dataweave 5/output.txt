@@ -1,0 +1,14 @@
+{
+"result": [
+{
+"lname": "kumar",
+"fname": "john"
+}
+],
+"details": [
+{
+"address": "new york",
+"address1": "USA"
+}
+]
+}
